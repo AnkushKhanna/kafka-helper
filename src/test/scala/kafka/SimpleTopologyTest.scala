@@ -3,6 +3,7 @@ package kafka
 import java.util.Properties
 
 import com.lightbend.kafka.scala.streams.StreamsBuilderS
+import kafka.schemaless.SimpleTopology
 import org.apache.kafka.common.serialization.{StringDeserializer, StringSerializer}
 import org.apache.kafka.streams.TopologyTestDriver
 import org.apache.kafka.streams.test.{ConsumerRecordFactory, OutputVerifier}

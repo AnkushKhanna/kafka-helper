@@ -1,10 +1,10 @@
-package kafka
+package kafka.schemaless
 
 import java.util.Properties
 
 import akka.actor.{Actor, ActorLogging}
 import com.lightbend.kafka.scala.streams.StreamsBuilderS
-import kafka.KafkaStreamActor.Start
+import kafka.schemaless.KafkaStreamActor.Start
 import org.apache.kafka.streams.KafkaStreams
 
 /**

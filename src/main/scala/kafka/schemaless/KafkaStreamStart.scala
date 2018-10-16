@@ -1,4 +1,4 @@
-package kafka
+package kafka.schemaless
 
 import java.util.Properties
 
