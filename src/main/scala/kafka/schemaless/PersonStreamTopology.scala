@@ -1,4 +1,4 @@
-package kafka
+package kafka.schemaless
 
 import com.lightbend.kafka.scala.streams.StreamsBuilderS
 import org.apache.kafka.streams.kstream.Produced

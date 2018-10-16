@@ -1,0 +1,8 @@
+{
+   "type": "record",
+       "name":"PersonKey",
+       "namespace": "schemaregistry.kafka.test",
+       "fields":[
+         {"name":"id","type":"int"}
+       ]
+}

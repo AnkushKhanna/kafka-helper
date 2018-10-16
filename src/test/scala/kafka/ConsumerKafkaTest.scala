@@ -1,6 +1,7 @@
 package kafka
 
 import akka.actor.{ActorRef, ActorSystem, Props}
+import kafka.schemaless.ConsumerKafka
 import org.mockito.Matchers.any
 import org.mockito.Mockito.when
 import org.scalatest.FlatSpec

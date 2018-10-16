@@ -1,0 +1,9 @@
+{
+   "type": "record",
+       "name":"PersonRecord",
+       "namespace": "schemaregistry.kafka.test",
+       "fields":[
+         {"name":"firstName","type":"string"},
+         {"name":"lastName","type":"string"}
+       ]
+}
