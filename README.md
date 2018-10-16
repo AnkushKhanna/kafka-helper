@@ -22,4 +22,3 @@ where `input-topic` is the name of your input topic.
 
 #### Example
 [PersonTopologyBuilderTest](src/test/scala/kafka/schematest/PersonTopologyBuilderTest.scala)
-
