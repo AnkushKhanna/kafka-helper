@@ -6,7 +6,7 @@ import kafka.SchemaRegistryAvroTest
 import org.scalatest.FlatSpec
 import schemaregistry.kafka.test.{PersonKey, PersonRecord}
 
-// extend SchemaRegistryAvroTest for adding posibility to use schema registry with MockedStreams
+// extend SchemaRegistryAvroTest for adding possibility to use schema registry with MockedStreams
 class PersonTopologyBuilderTest extends FlatSpec with SchemaRegistryAvroTest {
   private val inputTopic = "input-topic"
   private val outputTopic = "output-topic"
