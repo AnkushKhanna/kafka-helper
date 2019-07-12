@@ -16,6 +16,9 @@ libraryDependencies ++= Seq(
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.9.6",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.9.0",
 
+  "com.typesafe.akka" %% "akka-stream-kafka" % "1.0.4",
+  "com.typesafe.akka" %% "akka-stream" % "2.5.23",
+
   "org.mockito" % "mockito-all" % "1.8.4" % Test,
   "org.scalatest" %% "scalatest" % "3.0.5" % Test,
   "com.madewithtea" %% "mockedstreams" % "1.7.0" % Test,
