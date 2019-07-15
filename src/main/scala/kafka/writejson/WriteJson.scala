@@ -34,9 +34,13 @@ object WriteJson extends App {
     def seekBack(millis: Long, partitions: util.Collection[TopicPartition]) = {
       val partitionTime: util.Map[TopicPartition, lang.Long] = partitions.asScala.map(p => new TopicPartition(p.topic(), p.partition()) -> new lang.Long(System.currentTimeMillis() - milliSecondsBack)).toMap.asJava
 
+//      println(partitionTime.size())
+//      partitionTime.asScala.foreach(t => println(t._1+""))
+
       val offsetsForTimes = consumer.offsetsForTimes(partitionTime)
 
-      offsetsForTimes.asScala.foreach(x => consumer.seek(x._1, x._2.offset))
+      offsetsForTimes.asScala.filter(x =>x._2 != null ).foreach(x => println(x._1 + "    " + x._2.offset()))
+      offsetsForTimes.asScala.filter(x =>x._2 != null ).foreach(x => consumer.seek(x._1, x._2.offset))
     }
 
     override def onPartitionsRevoked(partitions: util.Collection[TopicPartition]): Unit = {
@@ -80,13 +84,13 @@ object WriteJson extends App {
 
   def prop() = {
     val properties = new Properties()
-    properties.put(ConsumerConfig.CLIENT_ID_CONFIG, s"WriteJson-${System.currentTimeMillis()}")
-    properties.put(ConsumerConfig.GROUP_ID_CONFIG, s"WriteJson-${System.currentTimeMillis()}")
+    properties.put(ConsumerConfig.CLIENT_ID_CONFIG, s"WriteJson-${topic}")
+    properties.put(ConsumerConfig.GROUP_ID_CONFIG, s"WriteJson-${topic}")
     properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer)
     properties.put("schema.registry.url", "http://localhost:8082")
     properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, classOf[GenericAvroDeserializer])
     properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, classOf[GenericAvroDeserializer])
-    properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest")
+    properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest")
     properties
   }
 }
