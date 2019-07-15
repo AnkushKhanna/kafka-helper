@@ -68,7 +68,7 @@ object WriteJson extends App {
     if (records.nonEmpty) recordTimeStamp = records.lastOption.get.timestamp()
 
     records.foreach(r => printWriter.write(r.value().toString + "\n"))
-    records.foreach(r => println(r.key().toString + "\n"))
+//    records.foreach(r => println(r.key().toString + "\n"))
     printWriter.flush()
   }
 
